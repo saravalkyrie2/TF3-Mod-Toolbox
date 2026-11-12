@@ -19,7 +19,7 @@ Fever 3 itself: nothing is marked as working in the Readme until it has been tri
 own windows, used day to day.
 
 - If you can't debug or follow what the AI has written, then you shouldn't submit or use it.
-- Use common sense, if you generated art or assets be up front - and exersize judgement on what you ask models to create.
+- Use common sense, if you generated art or assets be up front - and exercise judgement on what you ask models to create.
 
 Don't like it? That's your choice. Don't attack contributors, members or users for it; any such comments or mail go
 straight in the bin.
