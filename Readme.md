@@ -54,57 +54,6 @@ What's in the box:
 - **Safety**: every fix backs up the mod's text files first, and nothing is written into the game's mods folder unless
   you press Install (or confirm that you really meant the game's copy).
 
-## Does it actually work?
-
-Mostly, yes! The trains go forwards now, which is more than they did on day one.
-
-As of 12th November 2026 -
-
-Converted UK trains (the Mark 5a coaches, Class 390 and Class 700/707 were the test victims) run in TF3 with their bodies
-pointing the right way, their headlights present and their buy-menu groups intact. Jotrain Gamer's Gold Coast G:link,
-converted as a tram, runs as a tram and as light rail on tram tracks. Lexygone's Boeing 747 flies. Oppie's NL Modular
-Stations converts, loads, and its platforms, stairs, footbridges and underpasses work on TF3's own station with
-passengers actually using them.
-
-Legend: ✅ works and has been tested (in TF3 where it matters) · 🧪 built, waiting for its test · ⚠️ works, with a known
-quirk · 🔨 being written, or on the roadmap
-
-| Thing | State |
-|---|---|
-| TF2 → TF3 trains: locomotives, wagons, multiple units | ✅ shipped (to my own mods folder) |
-| Fix & Validate for trains: bogie pivots, missing TF2 meshes, drivers, icons, door animations, culling boxes, gangways, comfort, BC5 headers, label fonts, availability… | ✅ each one exists because it broke first |
-| Workshop library (tiles, UK filter, conversion status) and Sync / Install to TF3 | ✅ in daily use |
-| Bundling a base mod with its re-skins into one TF3 mod, Tuning tab, TF3 log analyser | 🧪 built and in use, not every corner tested |
-| Custom TF2 sound sets, run by their original TF2 code | 🧪 built; the listening test in game is pending |
-| Trams (TF2 trams → TF3 trams / light rail) | ✅ the G:link runs; rail tracks not tried yet |
-| Buses and trucks, with their own editors | 🧪 built; the test suite passes (65 xUnit tests at the last run) |
-| Aircraft conversion | ✅ the 747 flies, and queues at the runway end like TF3's own planes (it looked like a bug; it's how TF3 does it) |
-| Aircraft editor, airport size, Fleet/Livery view | 🔨 written, waiting for its first build |
-| Station conversion with module mapping (TF2 module → TF3 slot, TF3-native module, or the mod's own code) | ✅ NL Modular Stations' modules on TF3's station, with working paths |
-| Station catchment, ground textures, build sounds, high-platform fix | 🧪 built, in-game check pending |
-| NL's stairs placed at a platform end | ⚠️ passengers teleport there; the original TF2 mod did the same |
-| Station Configurator: build a station the way TF3's configure mode does (TF3's own scripts; paths, catchment, and a "!" only where something really is missing) | ✅ checked against what the game actually does |
-| Station Builder | 🧪 built, rarely used: the Configurator does most of its job |
-| Object Editor: walking paths of TF3 modules in 2D and 3D (move, add, snap to a surface, put on the floor) | 🧪 edits and saves; not proven in game yet (the NL paths I edited were broken in game anyway at the time) |
-| Object Editor: walking paths of converted TF2-code modules, per module and per slot (side or platform end) | 🧪 just built |
-| Shared vehicle library, 3D viewer library | 🔨 groundwork built; the editors move onto it later |
-| New interface ("Next": Telerik ribbon and docking windows) | 🔨 under construction |
-
-The lessons learned the hard way are written into code comments at the exact lines where they'll ambush the next
-person. A few highlights:
-
-- TF3 never reads walking paths from model files. Every converted station model's paths travel separately, and the
-  adapter puts them back where the model lands.
-- TF3 makes a platform's waiting lanes at 1.1 m, whatever your platform says. NL's platforms are 1.5 m. That's the
-  incident: the passengers were waiting 40 cm under the deck, so the station's walkways never met them.
-- TF3's construction code multiplies matrices with `*`. A TF2 matrix is just a table of 16 numbers, and TF3 is not
-  amused (`attempt to perform arithmetic on local 'm1'`).
-- Side buildings and platform-end buildings share one slot type in TF3's station. Only the way the slot is turned tells
-  them apart, which is why a module can work beside a platform and teleport people at the end of it.
-
-- Trust But Verify: the game's `stdout.txt` is the only reviewer on this project that has never once been polite, and
-  it has been right every time.
-
 ## Elephant in the room - Where is the code?
 
 Pending a licensing check and a clean up of the comments and documentation, an early preview is ready but needs some commercial packages removing first.
@@ -261,6 +210,57 @@ raising an issue.
 Work is carried out on a locally hosted git repo, without public access, and is pushed here when relatively
 battle-tested.
 
+## Does it actually work?
+
+Mostly, yes! The trains go forwards now, which is more than they did on day one.
+
+As of 12th November 2026 -
+
+Converted UK trains (the Mark 5a coaches, Class 390 and Class 700/707 were the test victims) run in TF3 with their bodies
+pointing the right way, their headlights present and their buy-menu groups intact. Jotrain Gamer's Gold Coast G:link,
+converted as a tram, runs as a tram and as light rail on tram tracks. Lexygone's Boeing 747 flies. Oppie's NL Modular
+Stations converts, loads, and its platforms, stairs, footbridges and underpasses work on TF3's own station with
+passengers actually using them.
+
+Legend: ✅ works and has been tested (in TF3 where it matters) · 🧪 built, waiting for its test · ⚠️ works, with a known
+quirk · 🔨 being written, or on the roadmap
+
+| Thing | State |
+|---|---|
+| TF2 → TF3 trains: locomotives, wagons, multiple units | ✅ shipped (to my own mods folder) |
+| Fix & Validate for trains: bogie pivots, missing TF2 meshes, drivers, icons, door animations, culling boxes, gangways, comfort, BC5 headers, label fonts, availability… | ✅ each one exists because it broke first |
+| Workshop library (tiles, UK filter, conversion status) and Sync / Install to TF3 | ✅ in daily use |
+| Bundling a base mod with its re-skins into one TF3 mod, Tuning tab, TF3 log analyser | 🧪 built and in use, not every corner tested |
+| Custom TF2 sound sets, run by their original TF2 code | 🧪 built; the listening test in game is pending |
+| Trams (TF2 trams → TF3 trams / light rail) | ✅ the G:link runs; rail tracks not tried yet |
+| Buses and trucks, with their own editors | 🧪 built; the test suite passes (65 xUnit tests at the last run) |
+| Aircraft conversion | ✅ the 747 flies, and queues at the runway end like TF3's own planes (it looked like a bug; it's how TF3 does it) |
+| Aircraft editor, airport size, Fleet/Livery view | 🔨 written, waiting for its first build |
+| Station conversion with module mapping (TF2 module → TF3 slot, TF3-native module, or the mod's own code) | ✅ NL Modular Stations' modules on TF3's station, with working paths |
+| Station catchment, ground textures, build sounds, high-platform fix | 🧪 built, in-game check pending |
+| NL's stairs placed at a platform end | ⚠️ passengers teleport there; the original TF2 mod did the same |
+| Station Configurator: build a station the way TF3's configure mode does (TF3's own scripts; paths, catchment, and a "!" only where something really is missing) | ✅ checked against what the game actually does |
+| Station Builder | 🧪 built, rarely used: the Configurator does most of its job |
+| Object Editor: walking paths of TF3 modules in 2D and 3D (move, add, snap to a surface, put on the floor) | 🧪 edits and saves; not proven in game yet (the NL paths I edited were broken in game anyway at the time) |
+| Object Editor: walking paths of converted TF2-code modules, per module and per slot (side or platform end) | 🧪 just built |
+| Shared vehicle library, 3D viewer library | 🔨 groundwork built; the editors move onto it later |
+| New interface ("Next": Telerik ribbon and docking windows) | 🔨 under construction |
+
+The lessons learned the hard way are written into code comments at the exact lines where they'll ambush the next
+person. A few highlights:
+
+- TF3 never reads walking paths from model files. Every converted station model's paths travel separately, and the
+  adapter puts them back where the model lands.
+- TF3 makes a platform's waiting lanes at 1.1 m, whatever your platform says. NL's platforms are 1.5 m. That's the
+  incident: the passengers were waiting 40 cm under the deck, so the station's walkways never met them.
+- TF3's construction code multiplies matrices with `*`. A TF2 matrix is just a table of 16 numbers, and TF3 is not
+  amused (`attempt to perform arithmetic on local 'm1'`).
+- Side buildings and platform-end buildings share one slot type in TF3's station. Only the way the slot is turned tells
+  them apart, which is why a module can work beside a platform and teleport people at the end of it.
+
+- Trust But Verify: the game's `stdout.txt` is the only reviewer on this project that has never once been polite, and
+  it has been right every time.
+
 TLDR:
 
 On 9 November 2026 I converted cw_315's CAF Mark 5a coaches (TransPennine Express Nova 3) to TF3, and the car bodies
@@ -273,4 +273,4 @@ passengers stayed aboard, which says a lot about TransPennine regulars.
 
 ![Converted coaches performing interpretive dance](Screenshots/Class800-Spin.jpg)
 
-So I kept building one.
+
