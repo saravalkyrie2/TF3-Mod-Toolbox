@@ -227,7 +227,7 @@ SOFTWARE.
 - The mod authors whose work got converted, prodded and occasionally spun: Oppie (NL Modular Stations), Scotchbob &
   Mezzie (Desiro Class 350 & 450), Jotrain Gamer (Gold Coast G:link), Lexygone (Boeing 747) and cw_315 (CAF Mark 5a
   coaches, the original spinners), plus a TF3-native Japanese rural station mod that already knew how to lift
-  passengers onto a high platform. - Seriously the games and the work on this tool would exist without your contributions.
+  passengers onto a high platform. - Seriously the games communities and the work on this tool wouldn't exist without the communities & modders contributions.
 
 ## Status
 
